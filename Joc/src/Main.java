@@ -11,7 +11,9 @@ public class Main {
     public static void libraryMenu() throws InterruptedException {
         System.out.println("------| Library Menu |------");
         System.out.println("Available categories: (0) SF | (1) Adventure | (2) Programming | (3) Comedy");
-        System.out.println("Available options:\n1) See all books in the library\n2) Chose a book category from the library\n3) See your books\n4) Exit program");
+        System.out.println("Available options:\n1) See all books in the library\n" +
+                "2) Chose a book category from the library\n3) See your books\n4) Add a new book" +
+                "5) Exit program");
         System.out.println("----------------------------\n");
         System.out.println("Enter your choice: ");
 
@@ -20,7 +22,7 @@ public class Main {
 
         response = sc.next();
 
-        if (Objects.equals(response, "4")) {
+        if (Objects.equals(response, "5")) {
             System.exit(0);
         } else if (Objects.equals(response, "1")) {
             //showAllBooksInLibrary();
@@ -28,7 +30,10 @@ public class Main {
             //showAllBookCategories();
         } else if (Objects.equals(response, "3")) {
             //showPersonBooks();
-        } else {
+        } else if (Objects.equals(response, "4")) {
+            //addNewBookInLibrary();
+        }
+        else {
             System.out.println("I can't understand your answer. Please try again.");
             TimeUnit.SECONDS.sleep(2);
             libraryMenu();
