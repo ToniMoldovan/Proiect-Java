@@ -8,4 +8,6 @@ public class Person {
         this._personLibraryId = _personLibraryId;
         this.personIsAdmin = personIsAdmin;
     }
+
+    Library librarie = new Library("test");
 }
