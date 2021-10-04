@@ -23,7 +23,6 @@
 * name
 * ID
 * isAdmin (true/false)
-* live number of books
 
 ### The book components:
 
