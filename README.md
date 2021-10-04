@@ -15,7 +15,23 @@
 ### What type of structure did I use for this app?
 </div>
 
-* For the books I used **Single Linked Lists** data structure.
+* For books and people I used **Single Linked Lists** data structure.
+
+### The person components:
+
+ Each person will have:
+* name
+* ID
+* isAdmin (true/false)
+
+### The book components:
+
+ Each book will have:
+* Name;
+* Author
+* Category
+* PagesNumber
+* Premium (true/false)
 
 
 
