@@ -5,13 +5,16 @@ import java.util.concurrent.TimeUnit;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        //mainMenu();
-        Library librarie = new Library("My Library");
-        librarie.addNewBookInLibrary("verde", "Daria Barac", "Beauty", 13, true);
-        librarie.addNewBookInLibrary("verde2", "Daria Barac", "Beauty", 23, false);
-        librarie.addNewBookInLibrary("verde3", "Daria Barac", "Beauty", 153, true);
+        People person = new People();
+        person.createNewPerson("Toni", 111, true);
+        person.library.addNewBookInLibrary("verde", "Daria Barac", "Beauty", 13, true);
+        person.library.addNewBookInLibrary("rosu", "Daria Barac", "Programming", 10, false);
+        person.library.addNewBookInLibrary("maro", "Daria Barac", "Dance", 123, true);
 
-        librarie.showAllBooksInLibrary();
+        person.showAllPeople();
+
+        person.library.showAllBooksInLibrary();
+
     }
 
     public static void mainMenu() throws InterruptedException {

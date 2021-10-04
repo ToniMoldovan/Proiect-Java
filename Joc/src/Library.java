@@ -2,14 +2,10 @@ import java.util.Objects;
 import java.util.Scanner;
 
 public class Library {
-    String libraryName;
     private int booksInLibrary = 0;
 
-    public Library(String libraryName) {
-        this.libraryName = libraryName;
+    public Library() {
         this.booksInLibrary = 0;
-
-        System.out.println("Library „" + libraryName + "” created successfully!");
     }
 
     class Book{
