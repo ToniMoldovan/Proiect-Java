@@ -1,13 +1,27 @@
 public class Person {
-    String personName;
-    private int _personLibraryId;
-    private boolean personIsAdmin;
+    
 
-    public Person(String personName, int _personLibraryId, boolean personIsAdmin) {
-        this.personName = personName;
-        this._personLibraryId = _personLibraryId;
-        this.personIsAdmin = personIsAdmin;
+    class About {
+        String personName;
+        private int _personID;
+        private boolean _isAdmin;
+        int age;
+
+        private int[] personalPenalties = new int[3];
+
+        public About(String personName, int _personID, boolean _isAdmin, int age) {
+            this.personName = personName;
+            this._personID = _personID;
+            this._isAdmin = _isAdmin;
+            this.age = age;
+        }
     }
 
-    Library librarie = new Library("test");
+    About about;
+
+//    public Person(String personName, int _personID, boolean _isAdmin, int age) {
+//        this.about = new About();
+//    }
+
+
 }
