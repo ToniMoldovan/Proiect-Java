@@ -98,17 +98,20 @@ public class People {
         int personNumber = getPersonCounter();
 
         if (current == null) {
-            System.out.println("Error. There are no people to unban.");
+            return false;
         }
 
         while (current != null) {
             if (current._persId == id) { //person is found
-                if (current._isBanned == false) { //if person is not banned, return false. Else, return true (if it is banned)
+                if (current._isBanned == false) { //not banned
                     return false;
                 }
-                else {
+                else { //banned
                     return true;
                 }
+            }
+            else if (id == 0) { //If the book is added to the general lib
+                return false;
             }
             current = current.next;
         }

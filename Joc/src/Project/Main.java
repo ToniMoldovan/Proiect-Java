@@ -13,7 +13,6 @@ public class Main {
 
     public static void mainMenu(People person) throws InterruptedException {
         System.out.println("------| Library Menu |------");
-        System.out.println("Available categories: (1) SF | (2) Adventure | (3) Programming | (4) Comedy");
         System.out.println("1) Create person");
         System.out.println("2) Show all the people");
         System.out.println("3) Ban person");
@@ -48,9 +47,9 @@ public class Main {
         } else if (Objects.equals(response, "4")) {
             unbanPerson(person);
         } else if (Objects.equals(response, "5")) {
-            person.library.showAllBooksInLibrary();
+            showAllBooksInGeneralLibrary(person);
         } else if (Objects.equals(response, "6")) {
-            //createNewPerson();
+            addBookToGeneralLibrary(person);
         } else if (Objects.equals(response, "7")) {
             //createNewPerson();
         } else if (Objects.equals(response, "8")) {
@@ -139,6 +138,84 @@ public class Main {
             int persId = sc.nextInt();
             person.unbanPersonById(persId);
         }
+        mainMenu(person);
+    }
+
+    public static void addBookToGeneralLibrary(People person) throws InterruptedException {
+        Scanner sc = new Scanner(System.in);
+        Scanner buffer = new Scanner(System.in);
+        System.out.println("Do you know the author? (yes/no)");
+        String authorKnown = sc.nextLine();
+
+
+        //Book(bookName, bookAuthor, bookCategory, bookPagesNumber, bookPremium, belongsTo)
+        if (authorKnown.equals("yes")) {
+            String bookName;
+            String bookAuthor;
+            String bookCategory;
+            int bookPageNumber;
+            boolean premiumBook = false;
+
+            System.out.println("Enter the book name: ");
+            bookName = sc.nextLine();
+            System.out.println("[log]Bookname:" + bookName);
+
+            System.out.println("Enter the book author: ");
+            bookAuthor = sc.nextLine();
+
+            System.out.println("Enter the book category (1/2/3/4): ");
+            bookCategory = sc.next();
+
+            System.out.println("Enter the number of pages: ");
+            bookPageNumber = sc.nextInt();
+
+            System.out.println("Is this a premium book? (yes/no)");
+            String isPremium = sc.next();
+
+            if (isPremium.equals("yes")) {
+                premiumBook = true;
+            }
+
+            person.library.addNewBookInLibrary(bookName, bookAuthor, bookCategory, bookPageNumber, premiumBook, 0);
+            System.out.println("Book created successfully!");
+        }
+        //Book(String bookName, String bookCategory, int bookPagesNumber, boolean bookPremium, int belongsTo)
+        else if (authorKnown.equals("no")) {
+            String bookName;
+            String bookCategory;
+            int bookPageNumber;
+            boolean premiumBook = false;
+
+            System.out.println("Enter the book name: ");
+            bookName = sc.nextLine();
+            System.out.println("[log]Bookname:" + bookName);
+
+            System.out.println("Available categories: (1) SF | (2) Adventure | (3) Programming | (4) Comedy");
+            System.out.println("Enter the book category: ");
+            bookCategory = sc.nextLine();
+
+            System.out.println("Enter the number of pages: ");
+            bookPageNumber = sc.nextInt();
+
+            System.out.println("Is this a premium book? (yes/no)");
+            String isPremium = sc.next();
+
+            if (isPremium.equals("yes")) {
+                premiumBook = true;
+            }
+
+            person.library.addNewBookInLibraryUnkownAuthor(bookName, bookCategory, bookPageNumber, premiumBook, 0);
+            System.out.println("Book created successfully!");
+        }
+        else {
+            System.out.println("I didn't understand your message.");
+        }
+
+        mainMenu(person);
+    }
+
+    public static void showAllBooksInGeneralLibrary(People person) throws InterruptedException {
+        person.library.showAllBooksInLibrary();
         mainMenu(person);
     }
 }

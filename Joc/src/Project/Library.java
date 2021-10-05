@@ -70,7 +70,32 @@ public class Library {
         else {
             System.out.println("I'm sorry. This user is banned.");
         }
+    }
 
+    public void addNewBookInLibraryUnkownAuthor(String bookName, String bookCategory, int bookPagesNumber, boolean bookPremium, int belongsTo) {
+        //Create a new node
+        boolean isBanned = People.checkIfPersonIsBannedById(belongsTo);
+
+        if (!isBanned) {
+            Book newBook = new Book(bookName, bookCategory, bookPagesNumber, bookPremium, belongsTo);
+            this.booksInLibrary++; //Incrementing the number of books in this library
+
+            //Checks if the list is empty
+            if(this.head == null) {
+                //If list is empty, both head and tail will point to new node
+                this.head = newBook;
+                tail = newBook;
+            }
+            else {
+                //newNode will be added after tail such that tail's next will point to newNode
+                tail.next = newBook;
+                //newNode will become new tail of the list
+                tail = newBook;
+            }
+        }
+        else {
+            System.out.println("I'm sorry. This user is banned.");
+        }
     }
 
     //showAllBooksInLibrary() will display all the nodes present in the list
@@ -83,6 +108,7 @@ public class Library {
             System.out.println("Library is empty");
             return;
         }
+        System.out.println("All categories: (1) SF | (2) Adventure | (3) Programming | (4) Comedy");
         System.out.println("All books in the library (" + numberOfBooks + ")");
         while(current != null) {
             //Prints each node by incrementing pointer
