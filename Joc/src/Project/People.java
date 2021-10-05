@@ -4,14 +4,15 @@ import java.util.Scanner;
 
 public class People {
     static int personCounter = 0;
+    static int personId = 100;
     private String _adminPassword = "pufuleti";
 
     Library library = new Library();
 
     static class Person {
-        private int _personId = 0;
         private boolean _isAdmin;
         private boolean _isBanned;
+        private int _persId = personId;
 
         String personName;
 
@@ -21,20 +22,11 @@ public class People {
         public Person(String personName, boolean _isAdmin) {
             this._isAdmin = _isAdmin;
             this.personName = personName;
-            int persId = get_personId();
-            persId += 1;
-            set_personId(persId);
+            personId++;
 
             System.out.println("New person created successfully!");
         }
 
-        public int get_personId() {
-            return _personId;
-        }
-
-        public void set_personId(int _personId) {
-            this._personId = _personId;
-        }
     }
 
     //First and last person
@@ -67,7 +59,7 @@ public class People {
         }
 
         while (current != null) {
-            if (current._personId == id) { //person is found
+            if (current._persId == id) { //person is found
                 current._isBanned = true;
                 System.out.println("Person with id [" + id + "] was banned successfully!");
                 return;
@@ -86,7 +78,7 @@ public class People {
         }
 
         while (current != null) {
-            if (current._personId == id) { //person is found
+            if (current._persId == id) { //person is found
                 if (current._isBanned == false) {
                     System.out.println("Person is already unbanned.");
                     return;
@@ -110,7 +102,7 @@ public class People {
         }
 
         while (current != null) {
-            if (current._personId == id) { //person is found
+            if (current._persId == id) { //person is found
                 if (current._isBanned == false) { //if person is not banned, return false. Else, return true (if it is banned)
                     return false;
                 }
@@ -134,7 +126,7 @@ public class People {
         }
 
         while (current != null) {
-            if (current._personId == searchedPersonID) { //When the person is found by the ID
+            if (current._persId == searchedPersonID) { //When the person is found by the ID
                 return current;
             }
             current = current.next;
@@ -155,7 +147,7 @@ public class People {
 
         System.out.println("Total number of people [" + people + "]");
         while (current != null) {
-            System.out.println("Name [" + current.personName + "] isAdmin [" + current._isAdmin + "] ID [" + current._personId + "] isBanned [" + current._isBanned + "]");
+            System.out.println("Name [" + current.personName + "] isAdmin [" + current._isAdmin + "] ID [" + current._persId + "] isBanned [" + current._isBanned + "]");
             current = current.next;
         }
         System.out.println("\n");

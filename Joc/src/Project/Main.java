@@ -48,7 +48,7 @@ public class Main {
         } else if (Objects.equals(response, "4")) {
             unbanPerson(person);
         } else if (Objects.equals(response, "5")) {
-            //createNewPerson();
+            person.library.showAllBooksInLibrary();
         } else if (Objects.equals(response, "6")) {
             //createNewPerson();
         } else if (Objects.equals(response, "7")) {
