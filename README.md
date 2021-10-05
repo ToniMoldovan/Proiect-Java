@@ -7,6 +7,7 @@
 
 
 * Create users;
+* Ban/Unban users;
 * Create libraries for each user;
 * Add, remove and search for books from general library & personal library.
 
@@ -23,6 +24,7 @@
 * name
 * ID
 * isAdmin (true/false)
+* isBanned (true/false)
 
 ### The book components:
 
@@ -32,6 +34,7 @@
 * Category
 * PagesNumber
 * Premium (true/false)
+* belongsTo (personID)
 
 
 
